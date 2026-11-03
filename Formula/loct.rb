@@ -1,30 +1,32 @@
 class Loct < Formula
   desc "Fast, language-aware codebase analyzer for AI agents"
   homepage "https://loct.io"
-  version "0.14.5"
   license "BUSL-1.1"
 
+  # 0.15.1 is not on GitHub Releases (those stop at v0.14.5). The installer
+  # and loctree.com publish one combined bundle per target; this formula
+  # still installs only the loct CLI from that bundle.
   on_macos do
     on_arm do
-      url "https://github.com/Loctree/loct/releases/download/v0.14.5/loct-darwin-aarch64.tar.gz"
-      sha256 "67225387843076a40e898abd598aae48719037a4743071ea0cf4412ad5a1d5a1"
+      url "https://loctree.com/releases/0.15.1/loctree-0.15.1-gc56718c7930a-aarch64-apple-darwin.tar.gz"
+      sha256 "1b8f346de5063df0d9d01104b1ae7e15277c040b965f0fe5919b5f35c0f19e2c"
     end
 
     on_intel do
-      url "https://github.com/Loctree/loct/releases/download/v0.14.5/loct-darwin-x86_64.tar.gz"
-      sha256 "9b64c5eeb0781f76b27e90ecc69b56963ae85eed8a7272425dbf06646e566da7"
+      url "https://loctree.com/releases/0.15.1/loctree-0.15.1-gc56718c7930a-x86_64-apple-darwin.tar.gz"
+      sha256 "b2ebeafd4ed280b8347529bfa3630e2947cdb6ba956dc98205546dac19bd8193"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/Loctree/loct/releases/download/v0.14.5/loct-linux-x86_64.tar.gz"
-      sha256 "2e1c83e7bc28fa391fd891e8853491031d05b47ea1a51cbb6e650cda2dbdfbb5"
+      url "https://loctree.com/releases/0.15.1/loctree-0.15.1-gc56718c7930a-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "c059e60cd41acb273a608cfe62bf8f4acd14c57d84fe31a89cf1e6facacfeaf8"
     end
   end
 
   def install
-    bin.install "loct"
+    bin.install "bin/loct"
   end
 
   test do
